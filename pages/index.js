@@ -8,15 +8,15 @@ const mockData = [
     id: 1,
     src: '/images/east-of-eden.jpg',
     title: "East from Eden",
-    author: "", genre: "Novel",
+    author: "John Steinbeck", genre: "Novel",
     price: "£4.99",
     description: "East of Eden brings to life the intricate details of two families, the Trasks and the Hamiltons, and their interwoven stories. The Hamilton family in the novel is said to be based on the real-life family of Samuel Hamilton, Steinbeck's maternal grandfather. A young John Steinbeck also appears briefly in the novel as a minor character."
   },
   {
-    id: 1,
+    id: 2,
     src: '/images/east-of-eden.jpg',
     title: "East from Eden",
-    author: "", genre: "Novel",
+    author: "John Steinbeck", genre: "Novel",
     price: "£4.99",
     description: "East of Eden brings to life the intricate details of two families, the Trasks and the Hamiltons, and their interwoven stories. The Hamilton family in the novel is said to be based on the real-life family of Samuel Hamilton, Steinbeck's maternal grandfather. A young John Steinbeck also appears briefly in the novel as a minor character."
   },]
