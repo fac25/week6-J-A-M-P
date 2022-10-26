@@ -25,7 +25,7 @@ export default function Card({ book, home }) {
                 <p><span>Genre:</span> {book.genre}</p>
                 <p><span>Price:</span> {book.price}</p>
                 {!home &&
-                    <p>description: {book.description}</p>}
+                    <p>description: {book.blurb}</p>}
             </section>
         </>
     )
