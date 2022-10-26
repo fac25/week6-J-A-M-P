@@ -12,7 +12,7 @@ export function listAllBooks() {
 const insert_book = db.prepare(/*sql*/ `
   INSERT INTO books (title, author, genre, price, blurb, src)
   VALUES ($title, $author, $genre, $price, $blurb, $src)
-`)
+`);
 
 export function insertBook({ title, author, genre, price, blurb, src }) {
   return insert_book.run({
@@ -21,6 +21,6 @@ export function insertBook({ title, author, genre, price, blurb, src }) {
     genre,
     price,
     blurb,
-    src
-  })
+    src,
+  });
 }
