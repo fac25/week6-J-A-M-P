@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Card from "../components/card";
 import styles from "../styles/Home.module.css";
-import allBooks from "../lib/data.js";
+import { allBooks } from "../lib/data.js";
 
 // operates only on the sever side
 export async function getStaticProps({ params }) {
@@ -15,29 +15,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-
-const mockData = [
-  {
-    id: 1,
-    src: "/images/east-of-eden.jpg",
-    title: "East from Eden",
-    author: "John Steinbeck",
-    genre: "Novel",
-    price: "£4.99",
-    blurb:
-      "East of Eden brings to life the intricate details of two families, the Trasks and the Hamiltons, and their interwoven stories. The Hamilton family in the novel is said to be based on the real-life family of Samuel Hamilton, Steinbeck's maternal grandfather. A young John Steinbeck also appears briefly in the novel as a minor character.",
-  },
-  {
-    id: 2,
-    src: "/images/east-of-eden.jpg",
-    title: "East from Eden",
-    author: "John Steinbeck",
-    genre: "Novel",
-    price: "£4.99",
-    blurb:
-      "East of Eden brings to life the intricate details of two families, the Trasks and the Hamiltons, and their interwoven stories. The Hamilton family in the novel is said to be based on the real-life family of Samuel Hamilton, Steinbeck's maternal grandfather. A young John Steinbeck also appears briefly in the novel as a minor character.",
-  },
-];
 export default function Home({ booksData }) {
   return (
     <div className={styles.container}>
