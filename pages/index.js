@@ -38,7 +38,7 @@ const mockData = [
       "East of Eden brings to life the intricate details of two families, the Trasks and the Hamiltons, and their interwoven stories. The Hamilton family in the novel is said to be based on the real-life family of Samuel Hamilton, Steinbeck's maternal grandfather. A young John Steinbeck also appears briefly in the novel as a minor character.",
   },
 ];
-export default function Home() {
+export default function Home({ booksData }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -46,7 +46,7 @@ export default function Home() {
         <meta name="description" content="A bookstore" />
       </Head>
       <main className={styles.main + " " + styles.grid}>
-        {mockData.map((book) => (
+        {booksData.map((book) => (
           <Card book={book} key={book.id} home />
         ))}
       </main>
