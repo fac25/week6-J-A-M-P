@@ -37,6 +37,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function BookPage({ book }) {
-  return <Card book={book} />;
+export default function BookPage({ book, cart, setCart }) {
+  return <Card book={book} cart={cart} setCart={setCart} />;
 }
