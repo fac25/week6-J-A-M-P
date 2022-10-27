@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import Card from "../components/card";
+import Cart from "../components/cart";
+import Cartbtn from "../components/cartbtn";
 import styles from "../styles/Home.module.css";
 import { allBooks } from "../lib/data.js";
 
@@ -46,6 +48,8 @@ export default function Home({ booksData, cart, setCart }) {
         {books.map((book) => (
           <Card book={book} cart={cart} setCart={setCart} key={book.id} home />
         ))}
+        <Cart />
+        <Cartbtn />
       </main>
       {console.log(cart)}
       <footer className={styles.footer}>

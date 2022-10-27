@@ -1,0 +1,30 @@
+.cart {
+  padding: 15px;
+  max-width: 400px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-height: 100vh;
+  background-color: blue;
+  z-index: 5;
+}
+
+.title {
+  text-align: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button:hover {
+  font-weight: bold;
+}
