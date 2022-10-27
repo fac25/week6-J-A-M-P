@@ -47,8 +47,23 @@ export default function Card({ book, home, cart, setCart }) {
 function addToCart({ cart, setCart, title, quantity, book }) {
   const newCart = [...cart]
   const foundItem = newCart.find(item => item.title === title)
-  if (!foundItem) return setCart([...cart, { ...book, quantity }])
+  if (!foundItem) {
+
+    setCart([...cart, { ...book, quantity }])
+    localStorage.setItem('shoppingBasket', [...cart, { ...book, quantity }])
+    // set local storage to current cart
+    // localStorage.setItem
+
+    //setItem(keyName, keyValue) 
+    return
+  }
 
   foundItem.quantity += quantity
   setCart(newCart)
+  localStorage.setItem('shoppingBasket', newCart)
+
+  // set local storage to current cart
 }
+
+// When user clicks addToCart
+// 
