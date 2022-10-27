@@ -47,8 +47,17 @@ export default function Card({ book, home, cart, setCart }) {
 function addToCart({ cart, setCart, title, quantity, book }) {
   const newCart = [...cart]
   const foundItem = newCart.find(item => item.title === title)
-  if (!foundItem) return setCart([...cart, { ...book, quantity }])
+  if (!foundItem) {
+
+    setCart([...cart, { ...book, quantity }])
+    localStorage.setItem('shoppingBasket', JSON.stringify([...cart, { ...book, quantity }]))
+    return
+  }
 
   foundItem.quantity += quantity
   setCart(newCart)
+  localStorage.setItem('shoppingBasket', JSON.stringify(newCart))
+
+
 }
+

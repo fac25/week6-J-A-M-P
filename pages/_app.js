@@ -1,13 +1,15 @@
 import "../styles/globals.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([])
-  return <Component {...pageProps} cart={cart} setCart={setCart}/>;
-}
 
-export async function getStaticProps() {
+  useEffect(() => {
+    const savedCart = localStorage.getItem('shoppingBasket')
+  }, [])
 
+  return <Component {...pageProps} cart={cart} setCart={setCart} />;
 }
 
 export default MyApp;
