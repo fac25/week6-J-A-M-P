@@ -3,9 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 
-//** if title exists in cart update quantity
-// BUG - min value 0
-
 export default function Card({ book, home, cart, setCart }) {
   const [quantity, setQuantity] = useState(0)
   const { title, author, genre, id, price, blurb } = book
@@ -37,11 +34,21 @@ export default function Card({ book, home, cart, setCart }) {
           <p>{quantity}</p>
           {/* {<input id="amount" onChange={(e) => setQuantity(Number(e.target.value))<} value={quantity} min="0" type="number" />} */}
           <button onClick={() => quantity > 0 && setQuantity(quantity - 1)}>-</button>
-          <button onClick={() => setCart([...cart, { ...book, quantity }])}>Add to Basket</button>
-          {console.log(cart)}
+          <button onClick={() => addToCart({ cart, setCart, title, quantity, book })}>Add to Basket</button>
         </section>
         {!home && <p>description: {blurb}</p>}
       </section>
     </>
   );
+
+}
+
+
+function addToCart({ cart, setCart, title, quantity, book }) {
+  const newCart = [...cart]
+  const foundItem = newCart.find(item => item.title === title)
+  if (!foundItem) return setCart([...cart, { ...book, quantity }])
+
+  foundItem.quantity += quantity
+  setCart(newCart)
 }
