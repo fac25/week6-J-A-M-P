@@ -16,7 +16,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Home({ booksData }) {
+export default function Home({ booksData, cart, setCart }) {
   const [books, setBooks] = useState(booksData);
 
   const search = (event) => {
@@ -44,10 +44,10 @@ export default function Home({ booksData }) {
         ></input>
 
         {books.map((book) => (
-          <Card book={book} key={book.id} home />
+          <Card book={book} cart={cart} setCart={setCart} key={book.id} home />
         ))}
       </main>
-
+      {console.log(cart)}
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

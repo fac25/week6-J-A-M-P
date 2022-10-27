@@ -1,11 +1,13 @@
 import "../styles/globals.css";
+import { useState } from "react";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const [cart, setCart] = useState([])
+  return <Component {...pageProps} cart={cart} setCart={setCart}/>;
 }
 
 export async function getStaticProps() {
-  
+
 }
 
 export default MyApp;
