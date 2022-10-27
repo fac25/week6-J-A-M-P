@@ -13,13 +13,14 @@ export default function Card({ book, home }) {
   return (
     <>
       <section className={styles.card}>
-        {/* {home ?
-                    <Link href={path}>
-                        <Image src={`${book.src}`} width={100} height={100} />
-                    </Link>
-                    :
-                    <Image src={`${book.src}`} width={100} height={100} />
-                } */}
+        {home ? (
+          <Link href={`/books/${book.id}`}>
+            <Image src={`/images/east-of-eden.jpg`} width={100} height={100} />
+          </Link>
+        ) : (
+          <Image src={`/images/east-of-eden.jpg`} width={100} height={100} />
+        )}
+
         <h2>{book.title}</h2>
         <p>
           <span>Author:</span> {book.author}

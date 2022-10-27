@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Card from "../components/card";
 import styles from "../styles/Home.module.css";
-import allBooks from "../lib/data.js";
+import { allBooks } from "../lib/data.js";
 
 import React, { useState } from "react";
 

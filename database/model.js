@@ -24,3 +24,13 @@ export function insertBook({ title, author, genre, price, blurb, src }) {
     src,
   });
 }
+
+const get_book = db.prepare(/*sql */ `
+  SELECT title, author, genre, price, blurb, src
+  FROM books 
+  WHERE id = ?
+`);
+
+export function getBook(id) {
+  return get_book.get(id);
+}
