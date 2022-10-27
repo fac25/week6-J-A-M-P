@@ -21,8 +21,6 @@ export async function getStaticPaths() {
     };
   });
 
-  console.log(allBooks);
-
   return {
     paths,
     fallback: false,
