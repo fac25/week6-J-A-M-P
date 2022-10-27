@@ -1,38 +1,54 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "../styles/Home.module.css";
-// 1. [ ] Create Mock data object: id, title, author, genre, price, description [{}, {}, {}]
-// 2. [X] Create function component
-// 3. [ ] Return html - card structure with example data
-// 4. [ ] Populate card with mockdata above
 
-// const mockData = [{ id: 1, src: '/images/east-of-eden.jpg', title: "East from Eden", author: "", genre: "Novel", price: "£4.99", description: "East of Eden brings to life the intricate details of two families, the Trasks and the Hamiltons, and their interwoven stories. The Hamilton family in the novel is said to be based on the real-life family of Samuel Hamilton, Steinbeck's maternal grandfather. A young John Steinbeck also appears briefly in the novel as a minor character." }]
-
-export default function Card({ book, home }) {
-  const path = book.title.replaceAll(" ", "-").toLowerCase();
+export default function Card({ book, home, cart, setCart }) {
+  const [quantity, setQuantity] = useState(0)
+  const { title, author, genre, id, price, blurb } = book
+  const path = title.replaceAll(" ", "-").toLowerCase();
   return (
     <>
       <section className={styles.card}>
         {home ? (
-          <Link href={`/books/${book.id}`}>
+          <Link href={`/books/${id}`}>
             <Image src={`/images/east-of-eden.jpg`} width={100} height={100} />
           </Link>
         ) : (
           <Image src={`/images/east-of-eden.jpg`} width={100} height={100} />
         )}
 
-        <h2>{book.title}</h2>
+        <h2>{title}</h2>
         <p>
-          <span>Author:</span> {book.author}
+          <span>Author:</span> {author}
         </p>
         <p>
-          <span>Genre:</span> {book.genre}
+          <span>Genre:</span> {genre}
         </p>
         <p>
-          <span>Price:</span> {book.price}
+          <span>Price:</span> {price}
         </p>
-        {!home && <p>description: {book.blurb}</p>}
+        <section>
+          <label htmlFor="amount">Quantity: </label>
+          <button onClick={() => setQuantity(quantity + 1)}>+</button>
+          <p>{quantity}</p>
+          {/* {<input id="amount" onChange={(e) => setQuantity(Number(e.target.value))<} value={quantity} min="0" type="number" />} */}
+          <button onClick={() => quantity > 0 && setQuantity(quantity - 1)}>-</button>
+          <button onClick={() => addToCart({ cart, setCart, title, quantity, book })}>Add to Basket</button>
+        </section>
+        {!home && <p>description: {blurb}</p>}
       </section>
     </>
   );
+
+}
+
+
+function addToCart({ cart, setCart, title, quantity, book }) {
+  const newCart = [...cart]
+  const foundItem = newCart.find(item => item.title === title)
+  if (!foundItem) return setCart([...cart, { ...book, quantity }])
+
+  foundItem.quantity += quantity
+  setCart(newCart)
 }
