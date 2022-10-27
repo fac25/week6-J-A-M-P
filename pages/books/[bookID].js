@@ -1,19 +1,9 @@
 import Card from "../../components/card";
+import Cart from "../../components/cart";
 import { getBookData, allBooks } from "../../lib/data";
-// query database -- return one entrie row
-/**
- * Get a specific book from the database by using a title
- * Use it in bookID.js
- * Display the book in the created page.
- */
-// working inside this file!
-// get staticpaths to  - will return an array of possible routes
-
-// get static props .... ?
 
 export async function getStaticPaths() {
   const paths = allBooks.map((book) => {
-    // const formattedBook = book.title.replaceAll(" ", "-").toLowerCase();
     return {
       params: {
         bookID: `${book.id}`,
@@ -38,5 +28,10 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BookPage({ book, cart, setCart }) {
-  return <Card book={book} cart={cart} setCart={setCart} />;
+  return (
+    <>
+      <Card book={book} cart={cart} setCart={setCart} />
+      <Cart cart={cart} />
+    </>
+  );
 }
