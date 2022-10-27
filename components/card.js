@@ -2,15 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
-// ---- Add inputs to card component
-// ---- quantity input (type  nr), add to cart btn
-// ---- add useState to hold quantity
-// ---- add useState to hold the basket contents
-// ---- onclick add to basket = update basket state 
-// ---- basket state: [{title, author, quantity, price}]
-// ** if title exists in cart update quantity
-// ** - plus, minus buttons
-// ** plus/minus updates value of quantity input
+
+//** if title exists in cart update quantity
 // BUG - min value 0
 
 export default function Card({ book, home, cart, setCart }) {
@@ -43,8 +36,8 @@ export default function Card({ book, home, cart, setCart }) {
           <button onClick={() => setQuantity(quantity + 1)}>+</button>
           <p>{quantity}</p>
           {/* {<input id="amount" onChange={(e) => setQuantity(Number(e.target.value))<} value={quantity} min="0" type="number" />} */}
-          <button onClick={() => setQuantity(quantity - 1)}>-</button>
-          <button onClick={() => setCart([...cart, { title, author, price, quantity }])}>Add to Basket</button>
+          <button onClick={() => quantity > 0 && setQuantity(quantity - 1)}>-</button>
+          <button onClick={() => setCart([...cart, { ...book, quantity }])}>Add to Basket</button>
           {console.log(cart)}
         </section>
         {!home && <p>description: {blurb}</p>}
