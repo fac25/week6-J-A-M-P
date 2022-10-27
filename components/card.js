@@ -50,20 +50,14 @@ function addToCart({ cart, setCart, title, quantity, book }) {
   if (!foundItem) {
 
     setCart([...cart, { ...book, quantity }])
-    localStorage.setItem('shoppingBasket', [...cart, { ...book, quantity }])
-    // set local storage to current cart
-    // localStorage.setItem
-
-    //setItem(keyName, keyValue) 
+    localStorage.setItem('shoppingBasket', JSON.stringify([...cart, { ...book, quantity }]))
     return
   }
 
   foundItem.quantity += quantity
   setCart(newCart)
-  localStorage.setItem('shoppingBasket', newCart)
+  localStorage.setItem('shoppingBasket', JSON.stringify(newCart))
 
-  // set local storage to current cart
+
 }
 
-// When user clicks addToCart
-// 
