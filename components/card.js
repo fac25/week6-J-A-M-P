@@ -31,7 +31,10 @@ export default function Card({ book, home, cart, setCart }) {
         <div className={cardStyles["card-quantity-container"]}>
           <button
             className={cardStyles["card-button"]}
-            onClick={() => setQuantity(quantity + 1)}
+            onClick={(e) => {
+              e.preventDefault();
+              setQuantity(quantity + 1);
+            }}
           >
             +
           </button>
@@ -39,14 +42,20 @@ export default function Card({ book, home, cart, setCart }) {
           {/* {<input id="amount" onChange={(e) => setQuantity(Number(e.target.value))<} value={quantity} min="0" type="number" />} */}
           <button
             className={cardStyles["card-button"]}
-            onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+            onClick={(e) => {
+              e.preventDefault();
+              quantity > 1 && setQuantity(quantity - 1);
+            }}
           >
             -
           </button>
         </div>
         <button
           className={cardStyles["card-button"]}
-          onClick={() => addToCart({ cart, setCart, title, quantity, book })}
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart({ cart, setCart, title, quantity, book });
+          }}
         >
           Add to Basket
         </button>
