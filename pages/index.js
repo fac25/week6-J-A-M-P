@@ -38,16 +38,19 @@ export default function Home({ booksData, cart, setCart }) {
         <meta name="description" content="A bookstore" />
       </Head>
 
-      <main className={styles.main + " " + styles.grid}>
+      <main className={styles.container}>
         <input
           onKeyDown={search}
           type="text"
           placeholder="Search By Title..."
         ></input>
-
-        {books.map((book) => (
-          <Card book={book} cart={cart} setCart={setCart} key={book.id} home />
-        ))}
+        <ul className={`${styles.grid}`}>
+          {books.map((book) => (
+            <li key={book.id}>
+              <Card book={book} cart={cart} setCart={setCart} home />
+            </li>
+          ))}
+        </ul>
         <Cart cart={cart} />
       </main>
       <footer className={styles.footer}>

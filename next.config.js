@@ -3,13 +3,16 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**.google.com'
-      }
-    ]
-  }
-}
+    domains: ["books.google.com"],
+  },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'https',
+  //       hostname: '**.google.com'
+  //     }
+  //   ]
+  // }
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

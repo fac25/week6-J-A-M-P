@@ -8,6 +8,11 @@ body {
 
 ul {
   padding: 0;
+  list-style: none;
+}
+
+button {
+  padding: 5px;
 }
 
 a {
@@ -15,8 +20,14 @@ a {
   text-decoration: none;
 }
 
+main > * + * {
+  margin-top: 15px;
+}
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {

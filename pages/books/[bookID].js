@@ -1,5 +1,8 @@
 import Card from "../../components/card";
 import Cart from "../../components/cart";
+import styles from "../../styles/Home.module.css";
+
+import Link from "next/link";
 import { getBookData, allBooks } from "../../lib/data";
 
 export async function getStaticPaths() {
@@ -30,8 +33,11 @@ export async function getStaticProps({ params }) {
 export default function BookPage({ book, cart, setCart }) {
   return (
     <>
-      <Card book={book} cart={cart} setCart={setCart} />
-      <Cart cart={cart} />
+      <main className={styles.main}>
+        <Card book={book} cart={cart} setCart={setCart} />
+        <Cart cart={cart} />
+        <Link href="/">Back to home</Link>
+      </main>
     </>
   );
 }
