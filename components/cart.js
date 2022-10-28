@@ -8,7 +8,7 @@ export default function Cart({ cart }) {
       <Cartbtn setDisplayCart={setDisplayCart} />
       <section className={`${styles.cart} ${displayCart ? styles.open : ""}`}>
         <h3 className={styles["title"]}>Checkout Items</h3>
-        {cart.length > 0 ? (
+        {cart && cart.length > 0 ? (
           <>
             <ul>
               {cart.map((selectedBook) => (
