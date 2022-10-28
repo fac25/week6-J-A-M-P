@@ -5,7 +5,8 @@ function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const savedCart = localStorage.getItem("shoppingBasket");
+    const savedCart = JSON.parse(localStorage.getItem("shoppingBasket"));
+    setCart(savedCart);
   }, []);
 
   return <Component {...pageProps} cart={cart} setCart={setCart} />;
