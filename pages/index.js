@@ -2,11 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import Card from "../components/card";
 import Cart from "../components/cart";
-import Cartbtn from "../components/cartbtn";
 import styles from "../styles/Home.module.css";
 import { allBooks } from "../lib/data.js";
 
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState } from "react";
 
 // operates only on the sever side
 export async function getStaticProps({ params }) {
