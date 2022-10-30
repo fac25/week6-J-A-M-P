@@ -6,7 +6,7 @@ import Cartbtn from "../components/cartbtn";
 import styles from "../styles/Home.module.css";
 import { allBooks } from "../lib/data.js";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 // operates only on the sever side
 export async function getStaticProps({ params }) {
@@ -40,7 +40,7 @@ export default function Home({ booksData, cart, setCart }) {
 
       <main className={styles.container}>
         <input
-          onKeyDown={search}
+          onKeyUp={search}
           type="text"
           placeholder="Search By Title..."
         ></input>
